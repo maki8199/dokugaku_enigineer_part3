@@ -40,7 +40,6 @@ const SECOND_ONION_DISCOUNT_PRICE = 100;
 
 const SET_DISCOUNT_PRICE = 20;
 
-const RICE_DISCOUNT_RATE = 0.5;
 const RICE_DISCOUNT_START_TIME = "20:00";
 
 const PRICES = [
@@ -63,6 +62,7 @@ function discountOnion(int $number): int
     } elseif ($number >= FIRST_ONION_DISCOUNT_NUMBER) {
         return FIRST_ONION_DISCOUNT_PRICE;
     }
+    return 0;
 }
 
 function discountSet(int $drinkNumber, int $riceNumber): int
@@ -73,11 +73,12 @@ function discountSet(int $drinkNumber, int $riceNumber): int
 function discountRice(string $time, int $riceAmount): int
 {
     if (strtotime(RICE_DISCOUNT_START_TIME) <= strtotime($time)) {
-        return (int) $riceAmount * RICE_DISCOUNT_RATE;
+        return (int) $riceAmount / 2;
     }
     return 0;
 }
 
+/** @phpstan-ignore-next-line */
 function calc(string $time, array $items): int
 {
     $totalAmount = 0;
