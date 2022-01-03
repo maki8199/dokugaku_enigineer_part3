@@ -1,0 +1,1 @@
+{"version":1,"defects":{"MathTest::testDouble":3,"ViewingTimes::test":3,"SuperMarket::testCalc":4},"times":{"MathTest::testDouble":0.029,"ViewingTimes::test":0.002,"SuperMarket::testCalc":0}}
