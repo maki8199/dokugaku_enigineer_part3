@@ -1,8 +1,7 @@
 <?php
 
-function sayHello(string $argString): void
-{
-    echo "hello" . $argString . PHP_EOL;
-}
+$a = (function () {
+    return "test";
+})();
 
-sayHello("hello");
+var_dump($a);
