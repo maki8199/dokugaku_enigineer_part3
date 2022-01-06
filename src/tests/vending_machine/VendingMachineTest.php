@@ -22,7 +22,7 @@ final class VendingMachineTest extends TestCase
         $this->assertSame('', $vendingMachine->pressButton());
 
         // 100円を入れた場合はジュースを購入できる
-        $this->assertSame('cider', $vendingMachine->pressButton());
         $vendingMachine->depositCoin(100);
+        $this->assertSame('cider', $vendingMachine->pressButton());
     }
 }
