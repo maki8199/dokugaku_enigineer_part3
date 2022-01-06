@@ -26,5 +26,3 @@ final class VendingMachineTest extends TestCase
         $vendingMachine->depositCoin(100);
     }
 }
-
-// aaaaa

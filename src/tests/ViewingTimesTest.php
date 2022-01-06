@@ -26,3 +26,5 @@ final class ViewingTimes extends TestCase
         display($viewingTimePerChannel, $totalViewingTime);
     }
 }
+
+// test
