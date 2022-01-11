@@ -1,5 +1,8 @@
 <?php
 
+require_once('PokerPlayer.php');
+require_once('PokerCard.php');
+
 class PokerGame
 {
     public function __construct(private array $cards1, private array $cards2)
@@ -8,6 +11,16 @@ class PokerGame
 
     public function start(): array
     {
-        return [$this->cards1, $this->cards2];
+        $playerCardRanks = [];
+        foreach ([$this->cards1, $this->cards2] as $cards) {
+            $pokerCards = array_map(fn ($card) => new PokerCard($card), $cards);
+            $player = new PokerPlayer($pokerCards);
+            $playerCardRanks[] = $player->GetCardRanks();
+        }
+
+        return $playerCardRanks;
     }
 }
+
+$game = new PokerGame(['CA', 'DA'], ['C10', 'H10']);
+$game->start();
